@@ -1,0 +1,7 @@
+{
+  "plugins": [
+    "kneden",
+    "transform-export-extensions",
+    "transform-object-rest-spread"
+  ]
+}
