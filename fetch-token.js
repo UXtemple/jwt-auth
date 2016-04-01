@@ -1,12 +1,11 @@
 import fetchAuth from 'fetch-auth';
-import store from './store';
 
-export default async function fetchToken(endpoint, auth, keepAliveAt) {
+export default async function fetchToken(endpoint, auth) {
   // try to authenticate and get a token
   const token = await fetchAuth(endpoint, auth, {method: 'POST'});
 
-  // store the token for in local storage
-  store(endpoint, token, keepAliveAt);
+  // store the token in local storage under the endpoint for later use
+  localStorage.setItem(endpoint, token);
 
   return token;
 }
